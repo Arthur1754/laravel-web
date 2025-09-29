@@ -4,3 +4,4 @@
         <h2>Ini halaman Detail Mahasiswa</h2>
     </body>
 </html>
+//nyehehehehehe
