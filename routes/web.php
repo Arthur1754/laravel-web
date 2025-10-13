@@ -8,6 +8,10 @@ use App\Http\Controllers\MatakuliahController;
 
 use App\Http\Controllers\HomeController;
 
+use App\Http\Controllers\QuestionController;
+
+
+//Mahasiswa 📖🎓
 Route::get('/', function () {
     return view('welcome');
 });
@@ -38,4 +42,13 @@ Route::get('/about', function () {
 Route::get('/matakuliah', [MatakuliahController::class, 'index']);
 Route::get('/matakuliah/show/{param1?}', [MatakuliahController::class, 'show']);
 
-route::get('/home', [HomeController::class,'index']);
+
+//Home🏠
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::post('/question/store', [QuestionController::class, 'store'])
+        ->name('question.store');
+
+Route::get('/auth', [AuthController::class, 'index']);
+
+Route::get('/auth/login', [AuthController::class, 'login']);
