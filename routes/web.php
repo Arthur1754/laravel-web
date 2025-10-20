@@ -10,6 +10,14 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\QuestionController;
 
+use App\Http\Controllers\AuthController;
+
+use App\Http\Controllers\PelangganController;
+
+use App\Http\Controllers\DashboardController;
+
+
+
 
 //Mahasiswa 📖🎓
 Route::get('/', function () {
@@ -52,3 +60,7 @@ Route::post('/question/store', [QuestionController::class, 'store'])
 Route::get('/auth', [AuthController::class, 'index']);
 
 Route::get('/auth/login', [AuthController::class, 'login']);
+
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::resource('pelanggan', PelangganController::class);
