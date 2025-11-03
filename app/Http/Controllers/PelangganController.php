@@ -1,7 +1,10 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\Models\Pelanggan;
 
 class PelangganController extends Controller
 {
@@ -10,7 +13,8 @@ class PelangganController extends Controller
      */
     public function index()
     {
-        //
+		$data['dataPelanggan'] = Pelanggan::all();
+		return view('admin.pelanggan.index',$data);
     }
 
     /**
@@ -18,17 +22,16 @@ class PelangganController extends Controller
      */
     public function create()
     {
-        return view('admin.pelanggan.create');
+		return view('admin.pelanggan.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request){
-
-		//dd($request->all())
-
-		$data['first_name'] = $request->first_name;
+    public function store(Request $request)
+    {
+       //dd($request->all());
+        $data['first_name'] = $request->first_name;
 		$data['last_name'] = $request->last_name;
 		$data['birthday'] = $request->birthday;
 		$data['gender'] = $request->gender;
@@ -38,7 +41,7 @@ class PelangganController extends Controller
 		Pelanggan::create($data);
 
 		return redirect()->route('pelanggan.index')->with('success','Penambahan Data Berhasil!');
-}
+    }
 
     /**
      * Display the specified resource.
@@ -53,7 +56,8 @@ class PelangganController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data['dataPelanggan'] = Pelanggan::findOrFail($id);
+        return view('admin.pelanggan.edit', $data);
     }
 
     /**
@@ -72,7 +76,8 @@ class PelangganController extends Controller
         $pelanggan->phone = $request->phone;
 
         $pelanggan->save();
-        return redirect()->route('pelanggan.index')->with('success','Perubahan Data Berhasil!');
+
+        return redirect()->route('pelanggan.index')->with('success', 'Perubahan Data Berhasil!');
     }
 
     /**
@@ -80,6 +85,9 @@ class PelangganController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $pelanggan = Pelanggan::findOrFail($id);
+
+        $pelanggan->delete();
+        return redirect()->route('pelanggan.index')->with('success', 'Data berhasil dihapus');
     }
 }

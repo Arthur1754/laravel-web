@@ -27,23 +27,28 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
+       $request->validate([
+        'nama' => 'required|max:10',
+        'email' => ['required','email'],
+        'pertanyaan' => 'required|max:300|min:8',
+       ]);
+        $data['nama']=$request->nama;
+        $data['email']=$request->email;
+        $data['pertanyaan']=$request->pertanyaan;
 
-        $data['nama']           = $request->nama;
-        $data['email']          = $request->email;
-        $data['pertanyaan']     = $request->pertanyaan;
+        // return view('home-question-respond', $data);
+       // Redirect ke route yang memiliki alias 'home'
+	        //return redirect()->route('home');
 
-        $request->validate([
-            'nama'  => 'required|max:10',
-            'email' => ['required','email'],
-            'pertanyaan' => 'required|max:300|min:8',
-        ]);
+	    //Redirect ke halaman sebelumnya
+	        //return redirect()->back();
 
-        // return view('home-question-respon', $data);
-        // return redirect()->route('home');
-        // return redirect()->away('https://pcr.ac.id');
-        //return redirect()->route('home')->with('info', 'Berhasil dikirim');
-        return redirect()->back()->with('info', 'Oops... Saldo Kamu Kurang!');
-    }
+	    // Redirect ke URL eksternal
+	        //return redirect()->away('https://www.pcr.ac.id');
+
+            return redirect()->route('home')->with('info', 'Selamat, Kamu Lulus!');
+        }
 
     /**
      * Display the specified resource.
