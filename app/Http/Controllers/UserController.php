@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+
 use Illuminate\Http\Request;
 
-use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -15,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-		$data['dataUser'] = User::all();
+        $data['dataUser'] = User::all();
 		return view('admin.user.index',$data);
     }
 
@@ -24,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-		return view('admin.user.create');
+        return view('admin.user.create');
     }
 
     /**
@@ -32,11 +33,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-       //dd($request->all());
+        //dd($request->all());
+
         $data['name'] = $request->name;
-		$data['password'] =Hash::make($request->password);
 		$data['email'] = $request->email;
-        $data['confirm_password'] = $request->confirm_password;
+		//$data['password'] = $request->password;
+        $data['password'] = Hash::make($request->password);
 
 		User::create($data);
 
@@ -69,12 +71,10 @@ class UserController extends Controller
         $user = User::findOrFail($user_id);
 
         $user->name = $request->name;
-        $user->password = $request->password;
         $user->email = $request->email;
-        $user->confirm_password = $request->confirm_password;
+        $user->password = $request->password;
 
         $user->save();
-
         return redirect()->route('user.index')->with('success', 'Perubahan Data Berhasil!');
     }
 

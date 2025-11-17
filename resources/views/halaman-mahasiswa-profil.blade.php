@@ -1,8 +1,6 @@
 <html>
     <body>
-        <h1>Selamat datang!</h1>
-        <h2>Ini halaman Profil Mahasiswa</h2>
+        <h2>Selamat Datang!</h2>
+        <p>Ini halaman profil mahasiswa</p>
     </body>
 </html>
-//bruh
-//nyehh😺

@@ -1,19 +1,13 @@
-.navbar-logo{
-    height: 40px;
-    width: auto;
-    margin-right: 10px;
+.gambar {
+    width: 35%;
 }
 
 @font-face {
-    font-family: "MyCustomFont";
+    font-family: 'MyCustomFont';
     src: url('assets/fonts/MyCustomFont.ttf');
 }
 
 .font-custom{
-font-family: "Playwrite DE SAS", cursive;
-  font-optical-sizing: auto;
-}
-
-body {
-    font-family: "MyCustomFont";
+    font-family: "Playwrite US Modern", cursive;
+    font-optical-sizing: auto;
 }

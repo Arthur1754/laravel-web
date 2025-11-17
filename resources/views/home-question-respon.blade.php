@@ -64,9 +64,7 @@
             Pertanyaan Anda akan segera kami tanggapi dan balas melalui email <strong>{{ $email }}</strong>.<br><br>
             Mohon cek kotak masuk atau folder spam Anda secara berkala.
         </p>
-
-        <a href="{{ url('/') }}" class="btn btn-primary mt-4">Kembali ke Beranda</a>
+        <a href="{{ url('/home') }}" class="btn btn-primary mt-4">Kembali ke Beranda</a>
     </div>
-
 </body>
 </html>

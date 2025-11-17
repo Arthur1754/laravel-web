@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Update Pelanggan')
+@section('title', 'Edit Pelanggan')
 @section('content')
 
         <div class="py-4">
@@ -39,13 +39,13 @@
                                     <!-- First Name -->
                                     <div class="mb-3">
                                         <label for="first_name" class="form-label">First name</label>
-                                        <input type="text" id="first_name" name="first_name" class="form-control" value="{{ $dataPelanggan->first_name }}" required>
+                                        <input type="text" id="first_name" name="first_name" value="{{ $dataPelanggan->first_name }}" class="form-control" required>
                                     </div>
 
                                     <!-- Last Name -->
                                     <div class="mb-3">
                                         <label for="last_name" class="form-label">Last name</label>
-                                        <input type="text" id="last_name" name="last_name"class="form-control" value="{{ $dataPelanggan->last_name }}" required>
+                                        <input type="text" id="last_name" name="last_name" value="{{ $dataPelanggan->last_name }}" class="form-control" required>
                                     </div>
                                 </div>
 
@@ -53,37 +53,34 @@
                                     <!-- Birthday -->
                                     <div class="mb-3">
                                         <label for="birthday" class="form-label">Birthday</label>
-                                        <input type="date" id="birthday" name="birthday"class="form-control" value="{{ $dataPelanggan->birthday }}">
+                                        <input type="date" id="birthday" name="birthday" value="{{ $dataPelanggan->birthday }}" class="form-control" required>
                                     </div>
 
                                     <!-- Gender -->
-                                    <div class="mb-3">
-                                        <label for="gender" class="form-label">Gender</label>
-                                        <select id="gender" name="gender" class="form-select">
-                                            <option value="">-- Pilih --</option>
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
-                                            <option value="Other">Other</option>
-                                        </select>
-                                    </div>
+                                    <select class="form-select mb-0" id="gender" name="gender" aria-label="Gender select example" required>
+                                        <option selected>Gender</option>
+                                        <option value="Female" {{ $dataPelanggan->gender == 'Female' ? 'selected' : '' }}>Female</option>
+                                        <option value="Male" {{ $dataPelanggan->gender == 'Male' ? 'selected' : '' }}>Male</option>
+                                    </select>
+
                                 </div>
 
                                 <div class="col-lg-4 col-sm-12">
                                     <!-- Email -->
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email</label>
-                                        <input type="text" id="email" name="email"class="form-control" value="{{ $dataPelanggan->email }}" required>
+                                        <input type="text" id="email" name="email" value="{{ $dataPelanggan->email }}" class="form-control" required>
                                     </div>
 
                                     <!-- Phone -->
                                     <div class="mb-3">
                                         <label for="phone" class="form-label">Phone</label>
-                                        <input type="text" id="phone" name="phone"class="form-control" value="{{ $dataPelanggan->phone }}">
+                                        <input type="text" id="phone" name="phone" value="{{ $dataPelanggan->phone }}" class="form-control" required>
                                     </div>
 
                                     <!-- Buttons -->
                                     <div class="">
-                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
                                         <a href="{{ route('pelanggan.index') }}" class="btn btn-outline-secondary ms-2">Batal</a>
                                     </div>
                                 </div>
@@ -95,7 +92,3 @@
             </div>
         </div>
         @endsection
-
-apps-fileview.texmex_20251017.01_p0
-edit.blade.php
-Displaying edit.blade.php.

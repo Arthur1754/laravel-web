@@ -6,19 +6,63 @@ use Illuminate\Http\Request;
 
 class MatakuliahController extends Controller
 {
-    // Function untuk menampilkan data matakuliah
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
         return "Menampilkan data matakuliah";
     }
 
-    // Function untuk menampilkan matakuliah berdasarkan kode
-    public function show($param1 = null)
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
-        if ($param1 == 'ST445') {
-            return view('halaman-matakuliah');
-        }else{
-             return view ('halaman-show');
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show($kode = null)
+    {
+        if ($kode) {
+            return "Anda mengakses matakuliah " . $kode;
+        } else {
+            return "Masukkan kode matakuliah!";
         }
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }

@@ -44,7 +44,7 @@
                                     <!-- Last Name -->
                                     <div class="mb-3">
                                         <label for="last_name" class="form-label">Last name</label>
-                                        <input type="text" id="last_name" name="last_name"class="form-control" required>
+                                        <input type="text" id="last_name" name="last_name" class="form-control" required>
                                     </div>
                                 </div>
 
@@ -52,7 +52,7 @@
                                     <!-- Birthday -->
                                     <div class="mb-3">
                                         <label for="birthday" class="form-label">Birthday</label>
-                                        <input type="date" id="birthday" name="birthday"class="form-control">
+                                        <input type="date" id="birthday" name="birthday" class="form-control">
                                     </div>
 
                                     <!-- Gender -->
@@ -71,13 +71,13 @@
                                     <!-- Email -->
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email</label>
-                                        <input type="text" id="email" name="email"class="form-control" required>
+                                        <input type="text" id="email" name="email" class="form-control" required>
                                     </div>
 
                                     <!-- Phone -->
                                     <div class="mb-3">
                                         <label for="phone" class="form-label">Phone</label>
-                                        <input type="text" id="phone" name="phone"class="form-control">
+                                        <input type="text" id="phone" name="phone" class="form-control">
                                     </div>
 
                                     <!-- Buttons -->
